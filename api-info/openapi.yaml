@@ -1,0 +1,24 @@
+openapi: 3.0.1
+info:
+  title: ${{ values.appName }} API
+  description: API para el componente ${{ values.appName }}.
+  version: 1.0.0
+servers:
+  ## TODO - Actualizar la URL del servidor según el entorno y configuración real
+  - url: http://${{ values.appName }}-${{ values.baseProject }}-dev.apps.ocp4-dev.swissmedical.com.ar
+paths:
+  /hello:
+    get:
+      summary: Endpoint de Saludo
+      description: Devuelve un simple saludo.
+      responses:
+        '200':
+          description: Respuesta exitosa
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Hola, mundo!"

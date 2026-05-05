@@ -1,0 +1,20 @@
+spring:
+  config:
+    activate:
+      on-profile: pre-swagger
+
+springdoc:
+  api-docs:
+    enabled: true
+    path: /v3/api-docs
+
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui.html
+    disable-swagger-default-url: true
+    urls:
+      - name: smg-backend
+        url: /v3/api-docs
+    urls-primary-name: smg-backend
+    tags-sorter: alpha
+    operations-sorter: alpha

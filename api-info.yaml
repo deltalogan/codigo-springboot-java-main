@@ -1,0 +1,12 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: ${{ values.appName }}-api
+  description: La API para el microservicio ${{ values.appName }} del producto ${{ values.baseProject }}.
+spec:
+  type: openapi
+  lifecycle: ${{ values.lifecycle }}
+  owner: ${{ values.owner }}
+  system: ${{ values.baseProject }}
+  definition:
+    $text: ./api-info/openapi.yaml

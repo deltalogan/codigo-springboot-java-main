@@ -1,0 +1,5 @@
+site_name: ${{ values.appName }}
+nav:
+  - Introducción: index.md
+  - Desarrollo: development.md
+  - Despliegue: deployment.md

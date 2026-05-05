@@ -1,0 +1,35 @@
+spring:
+  application:
+    name: codigo-springboot-java-api-1
+  cloud:
+    discovery:
+      client:
+        composite-indicator:
+          enabled: false
+
+  data:
+    jpa:
+      open-in-view: false
+      repositories:
+        enabled: false
+
+  jpa:
+    open-in-view: false
+
+  # No configuramos datasource aquí - será manejado por PersistenceConfig con H2
+  sql:
+    init:
+      mode: always
+
+management:
+  metrics:
+    tags:
+      application: codigo-springboot-java-api-1
+
+springdoc:
+  swagger-ui:
+    path: /api/docs/ui
+    defaultModelsExpandDepth: -1
+  paths-to-exclude: /swagger-resources/**
+  api-docs:
+    path: /api/docs

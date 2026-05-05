@@ -1,0 +1,135 @@
+spring:
+  application:
+    name: smg-backend
+
+  cloud:
+    discovery:
+      client:
+        composite-indicator:
+          enabled: false
+
+  data:
+    jpa:
+      open-in-view: false
+      repositories:
+        enabled: false
+
+  # ==================== CONFIGURACIÓN JPA ====================
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: none
+    show-sql: false
+
+  # ==================== DATASOURCE (Default) ====================
+  datasource:
+    url: jdbc:h2:mem:smgdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;MODE=PostgreSQL
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+
+  sql:
+    init:
+      mode: always
+
+  # ==================== MYBATIS ====================
+  mybatis:
+    mapper-locations: classpath*:ar/com/smg/smmp/hl7/persistence/mapper/ds1/*.xml
+
+  # Desactivamos autoconfiguración de JPA/Hibernate para evitar conflictos con MyBatis + Sybase
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration
+
+management:
+  metrics:
+    tags:
+      application: smg-backend
+
+# ==================== SPRINGDOC / OPENAPI AUTOMÁTICO ====================
+springdoc:
+  api-docs:
+    enabled: true
+    path: /v3/api-docs
+
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui.html
+    disable-swagger-default-url: true
+    urls:
+      - name: smg-backend
+        url: /v3/api-docs
+    urls-primary-name: smg-backend
+    tags-sorter: alpha
+    operations-sorter: alpha
+
+# ===================================================================
+# ========================= PERFILES ================================
+# ===================================================================
+
+# ==================== PERFIL PRE (ASEDBPRE) ====================
+---
+spring:
+  config:
+    activate:
+      on-profile: pre
+  datasource:
+    url: jdbc:jtds:sybase://${DB_HOST}:${DB_PORT}/${DB_NAME}
+    driver-class-name: net.sourceforge.jtds.jdbc.Driver
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}
+    hikari:
+      connection-test-query: SELECT 1
+      minimum-idle: 5
+      maximum-pool-size: 15
+      connection-timeout: 60000
+      validation-timeout: 30000
+      idle-timeout: 300000
+      max-lifetime: 1800000
+      leak-detection-threshold: 30000
+
+springdoc:
+  api-docs:
+    enabled: false
+  swagger-ui:
+    enabled: false
+
+# ==================== PERFIL QA ====================
+---
+spring:
+  config:
+    activate:
+      on-profile: qa
+  datasource:
+    url: jdbc:jtds:sybase://10.35.0.46:4100/prestaci
+    driver-class-name: net.sourceforge.jtds.jdbc.Driver
+    username: crm_app
+    password: sybaseep
+    hikari:
+      connection-test-query: SELECT 1
+      minimum-idle: 5
+      maximum-pool-size: 15
+      connection-timeout: 60000
+      validation-timeout: 30000
+
+springdoc:
+  api-docs:
+    enabled: false
+  swagger-ui:
+    enabled: false
+
+# ==================== PERFIL LOCAL-SYBASE ====================
+---
+spring:
+  config:
+    activate:
+      on-profile: local-sybase
+  datasource:
+    url: jdbc:jtds:sybase://${DB_HOST:localhost}:${DB_PORT:4100}/${DB_NAME:prestaci}
+    driver-class-name: net.sourceforge.jtds.jdbc.Driver
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}
+    hikari:
+      connection-test-query: SELECT 1
+      minimum-idle: 5
+      maximum-pool-size: 10
+      connection-timeout: 30000

@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ar.com.smg.smmp.hl7.persistence.mapper.ds1.Hl7Mapper">
+	<resultMap id="rmHL7AnulaDiagnosticoResp" type="ar.com.smg.smmp.model.hl7.HL7AnulaDiagnosticoResp">
+		<result property="ticket" column="ticket" />
+		<result property="recha" column="recha" />
+		<result property="deno" column="deno" />
+	</resultMap>
+	<resultMap id="rmHL7InfoDiagnosticoCab" type="ar.com.smg.smmp.model.hl7.HL7InfoDiagnosticoCab">
+		<result property="ticket" column="ticket"/>
+		<result property="recha" column="recha"/>
+		<result property="deno" column="deno"/>
+		<result property="nomPrestad" column="nom_prestad"/>
+	</resultMap>
+	<resultMap id="rmHL7InfoDiagnosticoDetalle" type="ar.com.smg.smmp.model.hl7.HL7InfoDiagnosticoDetalle">
+		<result property="transac" column="transac"/>
+		<result property="rechaItem" column="recha_item"/>
+		<result property="denoItem" column="deno_item"/>
+		<result property="icd" column="icd"/>
+	</resultMap>
+	<resultMap id="rmHL7ElegibilidadResp" type="ar.com.smg.smmp.model.hl7.HL7ElegibilidadResp">
+		<result property="transacAlta" column="tran_alta" />
+		<result property="transac" column="trx" />
+		<result property="rechaCabecera" column="recha_cabecera" />
+		<result property="rechaCabeDeno" column="recha_cabe_deno" />
+		<result property="apeNom" column="ape_nom" />
+		<result property="gravado" column="gravado" />
+		<result property="planCodi" column="plan_codi" />
+		<result property="pmi" column="pmi" />
+		<result property="sexo" column="sexo" />
+		<result property="sexoAuto" column="sexo_auto" />
+		<result property="generoAuto" column="genero_auto" />
+		<result property="edad" column="edad" />
+		<result property="leyimp" column="leyimp" />
+		<result property="icdDeno" column="icd_deno" />
+	</resultMap>
+	<resultMap id="rmHL7ConsultaAutoCab" type="ar.com.smg.smmp.model.hl7.HL7ConsultaAutoCab">
+		<result property="transacAlta" column="tran_alta"/>
+		<result property="transac" column="trx"/>
+		<result property="rechaCabecera" column="recha_cabecera"/>
+		<result property="rechaCabeDeno" column="recha_cabe_deno"/>
+		<result property="apeNom" column="ape_nom"/>
+		<result property="gravado" column="gravado"/>
+		<result property="planCodi" column="plan_codi"/>
+		<result property="pmi" column="pmi"/>
+		<result property="sexo" column="sexo"/>
+		<result property="edad" column="edad"/>
+		<result property="leyimp" column="leyimp"/>
+		<result property="icdDeno" column="icd_deno"/>
+		<result property="nomPrestad" column="nom_prestad"/>
+		<result property="sucursal" column="sucur_e"/>
+		<result property="autoriz" column="auto_e"/>
+	</resultMap>
+	<resultMap id="rmHL7ConsultaAutoDetalle" type="ar.com.smg.smmp.model.hl7.HL7ConsultaAutoDetalle">
+		<result property="transac" column="transac"/>
+		<result property="canti" column="canti"/>
+		<result property="recha" column="recha"/>
+		<result property="denoItem" column="deno_item"/>
+		<result property="valorCopa" column="valor_copa"/>
+	</resultMap>
+	<resultMap id="rmHL7ConsultaTotalesCab" type="ar.com.smg.smmp.model.hl7.HL7ConsultaTotalesCab">
+		<result property="transac" column="transac"/>
+		<result property="tranFecha" column="tran_fecha"/>
+		<result property="respues" column="respues"/>
+		<result property="respuesDeno" column="respues_deno"/>
+		<result property="leyimp" column="leyimp"/>
+	</resultMap>
+	<resultMap id="rmHL7ConsultaTotalesDetalle" type="ar.com.smg.smmp.model.hl7.HL7ConsultaTotalesDetalle">
+		<result property="nomen" column="nomen"/>
+		<result property="prestac" column="prestac"/>
+		<result property="canti" column="canti"/>
+		<result property="nomenDeno" column="abre_deno_nomen"/>
+		<result property="prestacDeno" column="abre_deno_prestac"/>
+	</resultMap>
+	<resultMap id="rmHL7CancelPrestacCab" type="ar.com.smg.smmp.model.hl7.HL7CancelPrestacCab">
+		<result property="transacAlta" column="tran_alta"/>
+		<result property="transac" column="transac"/>
+		<result property="rechaCabecera" column="recha_cabecera"/>
+		<result property="rechaCabeDeno" column="recha_cabe_deno"/>
+		<result property="apeNom" column="ape_nom"/>
+		<result property="gravado" column="gravado"/>
+		<result property="planCodi" column="plan_codi"/>
+		<result property="pmi" column="pmi"/>
+		<result property="sexo" column="sexo"/>
+		<result property="edad" column="edad"/>
+		<result property="leyimp" column="leyimp"/>
+	</resultMap>
+	<resultMap id="rmHL7CancelPrestacDetalle" type="ar.com.smg.smmp.model.hl7.HL7CancelPrestacDetalle">
+		<result property="transac" column="trx"/>
+		<result property="recha" column="recha"/>
+		<result property="denoItem" column="deno_item"/>
+	</resultMap>
+	<resultMap id="rmHL7RegProdCab" type="ar.com.smg.smmp.model.hl7.HL7RegProdCab">
+		<result property="transacAlta" column="tran_alta"/>
+		<result property="transac" column="transac"/>
+		<result property="rechaCabecera" column="recha_cabecera"/>
+		<result property="rechaCabeDeno" column="recha_cabe_deno"/>
+		<result property="apeNom" column="ape_nom"/>
+		<result property="gravado" column="gravado"/>
+		<result property="planCodi" column="plan_codi"/>
+		<result property="pmi" column="pmi"/>
+		<result property="sexo" column="sexo"/>
+		<result property="sexoAuto" column="sexo_auto"/>
+		<result property="generoAuto" column="genero_auto"/>
+		<result property="edad" column="edad"/>
+		<result property="leyimp" column="leyimp"/>
+		<result property="icdDeno" column="icd_deno"/>
+		<result property="nomPrestad" column="nom_prestad"/>
+		<result property="sucursal" column="sucur_e"/>
+		<result property="autoriz" column="auto_e"/>
+	</resultMap>
+	<resultMap id="rmHL7RegProdDetalle" type="ar.com.smg.smmp.model.hl7.HL7RegProdDetalle">
+		<result property="transac" column="trx"/>
+		<result property="canti" column="canti"/>
+		<result property="recha" column="recha"/>
+		<result property="denoItem" column="deno_item"/>
+		<result property="valorCopa" column="valor_copa"/>
+	</resultMap>
+	<resultMap id="rmHL7Geoposicion" type="ar.com.smg.smmp.model.hl7.HL7Geoposicion">
+		<result property="id" column="id" />
+		<result property="transac" column="transac" />
+		<result property="longitud" column="longitud" />
+		<result property="latitud" column="latitud" />
+		<result property="url" column="url" />
+		<result property="timestamp" column="timestamp" />
+		<result property="altitud" column="altitud" />
+		<result property="velocidad" column="velocidad" />
+		<result property="rumbo" column="rumbo" />
+		<result property="precision" column="precision" />
+	</resultMap>
+	<resultMap id="rmHL7Transaccion" type="ar.com.smg.smmp.model.hl7.HL7ConsultaTransaccionResp">
+		<result property="transac" column="transac"/>
+		<result property="tranTipo" column="tran_tipo"/>
+		<result property="termId" column="term_id"/>
+		<result property="lugar" column="lugar"/>
+		<result property="prepaga" column="prepaga"/>
+		<result property="contra" column="contra"/>
+		<result property="inte" column="inte"/>
+		<result property="creden" column="creden"/>
+		<result property="lectura" column="lectura"/>
+		<result property="fecha" column="fecha"/>
+		<result property="nomen" column="nomen"/>
+		<result property="prestac" column="prestac"/>
+		<result property="canti" column="canti"/>
+		<result property="oriPrestad" column="ori_prestad"/>
+		<result property="oriMatriNaci" column="ori_matri_naci"/>
+		<result property="oriMatriProv" column="ori_matri_prov"/>
+		<result property="sucur" column="sucur"/>
+		<result property="auto" column="auto"/>
+		<result property="icd" column="icd"/>
+		<result property="urgen" column="urgen"/>
+		<result property="cate" column="cate"/>
+		<result property="descriCopa" column="descri_copa"/>
+		<result property="valorCopa" column="valor_copa"/>
+		<result property="pagoCopa" column="pago_copa"/>
+		<result property="insu" column="insu"/>
+		<result property="consClin" column="cons_clin"/>
+		<result property="planCodi" column="plan_codi"/>
+		<result property="mediGrupo" column="medi_grupo"/>
+		<result property="cober" column="cober"/>
+		<result property="erroCober" column="erro_cober"/>
+		<result property="grupo" column="grupo"/>
+		<result property="topeDesde" column="tope_desde"/>
+		<result property="realValor" column="real_valor"/>
+		<result property="conve" column="conve"/>
+		<result property="recha" column="recha"/>
+		<result property="transacRef" column="transac_ref"/>
+		<result property="ofi" column="ofi"/>
+		<result property="expe" column="expe"/>
+		<result property="bajaBecha" column="baja_fecha"/>
+		<result property="transacRela" column="transac_rela"/>
+		<result property="ticketExt" column="ticket_ext"/>
+		<result property="interNro" column="inter_nro"/>
+		<result property="ticketItemExt" column="ticket_item_ext"/>
+		<result property="cara" column="cara"/>
+		<result property="pieza" column="pieza"/>
+		<result property="estado" column="estado"/>
+		<result property="usuario" column="usuario"/>
+	</resultMap>
+	<resultMap id="rmHL7ConsultaPrestacionExceptuada" type="ar.com.smg.smmp.model.hl7.HL7ConsultaPrestacionExceptuada">
+		<result property="nomen" column="nomen"/>
+		<result property="prestac" column="prestac"/>
+	</resultMap>
+	<select
+			id="anulaDiagnostico"
+			statementType="CALLABLE"
+			parameterType="ar.com.smg.smmp.model.hl7.HL7AnulaDiagnostico"
+			resultMap="ar.com.smg.smmp.hl7.persistence.mapper.ds1.Hl7Mapper.rmHL7AnulaDiagnosticoResp" >
+		{call prestaci.dbo.hl7u_anula_diagnostico(
+		#{modo,mode=IN,jdbcType=VARCHAR},
+		#{creden,mode=IN,jdbcType=VARCHAR},
+		#{manual,mode=IN,jdbcType=VARCHAR},
+		#{termId,mode=IN,jdbcType=VARCHAR},
+		#{interNro,mode=IN,jdbcType=NUMERIC},
+		#{cuit,mode=IN,jdbcType=VARCHAR},
+		#{ticketAnula,mode=IN,jdbcType=NUMERIC}
+		)}
+	</select>
+	<select
+			id="informaDiagnostico"
+			statementType="CALLABLE"
+			parameterType="ar.com.smg.smmp.model.hl7.HL7InfoDiagnostico"
+			resultMap="ar.com.smg.smmp.hl7.persistence.mapper.ds1.Hl7Mapper.rmHL7InfoDiagnosticoCab,ar.com.smg.smmp.hl7.persistence.mapper.ds1.Hl7Mapper.rmHL7InfoDiagnosticoDetalle">
+		{call prestaci.dbo.hl7u_informa_diagnostico(
+		#{modo,mode=IN,jdbcType=VARCHAR},
+		#{creden,mode=IN,jdbcType=VARCHAR},
+		#{manual,mode=IN,jdbcType=VARCHAR},
+		#{ticket,mode=IN,jdbcType=NUMERIC},
+		#{termId,mode=IN,jdbcType=VARCHAR},
+		#{interNro,mode=IN,jdbcType=NUMERIC},
+		#{cuit,mode=IN,jdbcType=VARCHAR},
+		#{diag,mode=IN,jdbcType=VARCHAR}
+		)}
+	</select>
+	<select
+			id="elegibilidad"
+			statementType="CALLABLE"
+			parameterType="ar.com.smg.smmp.model.hl7.HL7Elegibilidad"
+			resultMap="ar.com.smg.smmp.hl7.persistence.mapper.ds1.Hl7Mapper.rmHL7ElegibilidadResp" >
+		{call prestaci.dbo.hl7u_elegibilidad(
+		#{modo,mode=IN,jdbcType=VARCHAR},
+		#{creden,mode=IN,jdbcType=VARCHAR},
+		#{alta,mode=IN,jdbcType=TIMESTAMP},
+		#{fecdif,mode=IN,jdbcType=VARCHAR},
+		#{manual,mode=IN,jdbcType=VARCHAR},
+		#{ticketExt,mode=IN,jdbcType=NUMERIC},
+		#{termId,mode=IN,jdbcType=VARCHAR},
+		#{interNro,mode=IN,jdbcType=NUMERIC},
+		#{cuit,mode=IN,jdbcType=VARCHAR},
+		#{oriMatri,mode=IN,jdbcType=VARCHAR},
+		#{autoriz,mode=IN,jdbcType=NUMERIC},
+		#{rechaExt,mode=IN,jdbcType=NUMERIC}
+		)}
+	</select>
+	<select
+			id="consultaAuto"
+			statementType="CALLABLE"
+			parameterType="ar.com.smg.smmp.model.hl7.HL7ConsultaAuto"
+			resultMap="ar.com.smg.smmp.hl7.persistence.mapper.ds1.Hl7Mapper.rmHL7ConsultaAutoCab,ar.com.smg.smmp.hl7.persistence.mapper.ds1.Hl7Mapper.rmHL7ConsultaAutoDetalle">
+		{call prestaci.dbo.hl7u_consulta_autoriz(
+		#{modo,mode=IN,jdbcType=VARCHAR},
+		#{creden,mode=IN,jdbcType=VARCHAR},
+		#{manual,mode=IN,jdbcType=VARCHAR},
+		#{termId,mode=IN,jdbcType=VARCHAR},
+		#{interNro,mode=IN,jdbcType=NUMERIC},
+		#{cuit,mode=IN,jdbcType=VARCHAR},
+		#{transac,mode=IN,jdbcType=NUMERIC},
+		#{consulta,mode=IN,jdbcType=VARCHAR}
+		)}
+	</select>
+	<select
+			id="consultaTotales"
+			statementType="CALLABLE"
+			parameterType="ar.com.smg.smmp.model.hl7.HL7ConsultaTotales"
+			resultMap="ar.com.smg.smmp.hl7.persistence.mapper.ds1.Hl7Mapper.rmHL7ConsultaTotalesCab,ar.com.smg.smmp.hl7.persistence.mapper.ds1.Hl7Mapper.rmHL7ConsultaTotalesDetalle">
+		{call prestaci.dbo.hl7u_consulta_totales(
+		#{interNro,mode=IN,jdbcType=NUMERIC},
+		#{termId,mode=IN,jdbcType=VARCHAR},
+		#{nropos,mode=IN,jdbcType=NUMERIC},
+		#{cuit,mode=IN,jdbcType=VARCHAR},
+		#{desde,mode=IN,jdbcType=TIMESTAMP},
+		#{hasta,mode=IN,jdbcType=TIMESTAMP},
+		#{prestac,mode=IN,jdbcType=VARCHAR}
+		)}
+	</select>
+	<select
+			id="cancelacionPrestaciones"
+			statementType="CALLABLE"
+			parameterType="ar.com.smg.smmp.model.hl7.HL7CancelPrestac"
+			resultMap="ar.com.smg.smmp.hl7.persistence.mapper.ds1.Hl7Mapper.rmHL7CancelPrestacCab,ar.com.smg.smmp.hl7.persistence.mapper.ds1.Hl7Mapper.rmHL7CancelPrestacDetalle">
+		{call prestaci.dbo.hl7u_cancelacion_prestaciones(
+		#{modo,mode=IN,jdbcType=VARCHAR},
+		#{creden,mode=IN,jdbcType=VARCHAR},
+		#{tipo,mode=IN,jdbcType=NUMERIC},
+		#{alta,mode=IN,jdbcType=TIMESTAMP},
+		#{manual,mode=IN,jdbcType=VARCHAR},
+		#{ticketExt,mode=IN,jdbcType=NUMERIC},
+		#{cancelCab,mode=IN,jdbcType=NUMERIC},
+		#{termId,mode=IN,jdbcType=VARCHAR},
+		#{interNro,mode=IN,jdbcType=NUMERIC},
+		#{cuit,mode=IN,jdbcType=VARCHAR},
+		#{cancelModo,mode=IN,jdbcType=VARCHAR},
+		#{errorExt,mode=IN,jdbcType=NUMERIC},
+		#{param1,mode=IN,jdbcType=VARCHAR},
+		#{param2,mode=IN,jdbcType=VARCHAR}
+		)}
+	</select>
+	<select
+			id="registracionProd"
+			statementType="CALLABLE"
+			parameterType="ar.com.smg.smmp.model.hl7.HL7RegProd"
+			resultMap="ar.com.smg.smmp.hl7.persistence.mapper.ds1.Hl7Mapper.rmHL7RegProdCab,ar.com.smg.smmp.hl7.persistence.mapper.ds1.Hl7Mapper.rmHL7RegProdDetalle">
+		{call prestaci.dbo.hl7u_registracion_prod(
+		#{modo,mode=IN,jdbcType=VARCHAR},
+		#{creden,mode=IN,jdbcType=VARCHAR},
+		#{tipo,mode=IN,jdbcType=NUMERIC},
+		#{alta,mode=IN,jdbcType=TIMESTAMP},
+		#{fecdif,mode=IN,jdbcType=VARCHAR},
+		#{manual,mode=IN,jdbcType=VARCHAR},
+		#{ticketExt,mode=IN,jdbcType=NUMERIC},
+		#{termId,mode=IN,jdbcType=VARCHAR},
+		#{interNro,mode=IN,jdbcType=NUMERIC},
+		#{cuit,mode=IN,jdbcType=VARCHAR},
+		#{oriMatri,mode=IN,jdbcType=VARCHAR},
+		#{autoriz,mode=IN,jdbcType=NUMERIC},
+		#{icd,mode=IN,jdbcType=VARCHAR},
+		#{rechaExt,mode=IN,jdbcType=NUMERIC},
+		#{param1,mode=IN,jdbcType=VARCHAR},
+		#{param2,mode=IN,jdbcType=VARCHAR},
+		#{param3,mode=IN,jdbcType=VARCHAR},
+		#{tipoEfector,mode=IN,jdbcType=VARCHAR},
+		#{idEfector,mode=IN,jdbcType=VARCHAR},
+		#{tipoPrescr,mode=IN,jdbcType=VARCHAR},
+		#{idPrescr,mode=IN,jdbcType=VARCHAR},
+		#{msgId,mode=IN,jdbcType=VARCHAR},
+		#{ackacept,mode=IN,jdbcType=VARCHAR},
+		#{ackackapl,mode=IN,jdbcType=VARCHAR},
+		#{consulta,mode=IN,jdbcType=VARCHAR},
+		#{agRechaCabe,mode=IN,jdbcType=NUMERIC},
+		#{agRecha,mode=IN,jdbcType=NUMERIC},
+		#{tipoMensaje,mode=IN,jdbcType=VARCHAR},
+		#{powerBuilder,mode=IN,jdbcType=BIT}
+		)}
+	</select>
+	<select
+			id="impresionTransac"
+			statementType="CALLABLE"
+			parameterType="java.lang.Integer"
+			resultMap="ar.com.smg.smmp.hl7.persistence.mapper.ds1.Hl7Mapper.rmHL7RegProdCab, ar.com.smg.smmp.hl7.persistence.mapper.ds1.Hl7Mapper.rmHL7RegProdDetalle">
+		{call prestaci.dbo.prs_impresion_transac(
+		#{codigoTx,mode=IN,jdbcType=NUMERIC}
+		)}
+	</select>
+	<select id="consultaGeoposicion"
+	        statementType="CALLABLE"
+	        parameterType="java.lang.Integer"
+	        resultMap="ar.com.smg.smmp.hl7.persistence.mapper.ds1.Hl7Mapper.rmHL7Geoposicion">
+		{call prestaci.dbo.get_transac_coordenadas(
+		#{codigoTx, mode=IN, jdbcType=NUMERIC}
+		)}
+	</select>
+	<select id="informaGeoposicion"
+	        statementType="CALLABLE"
+	        parameterType="ar.com.smg.smmp.model.hl7.HL7Geoposicion"
+	        resultMap="ar.com.smg.smmp.hl7.persistence.mapper.ds1.Hl7Mapper.rmHL7Geoposicion">
+		{call prestaci.dbo.set_transac_coordenadas(
+		#{transac, mode=IN, jdbcType=NUMERIC},
+		#{longitud, mode=IN, jdbcType=VARCHAR},
+		#{latitud, mode=IN, jdbcType=VARCHAR},
+		#{url, mode=IN, jdbcType=VARCHAR},
+		#{timestamp, mode=IN, jdbcType=TIMESTAMP},
+		#{altitud, mode=IN, jdbcType=VARCHAR},
+		#{velocidad, mode=IN, jdbcType=VARCHAR},
+		#{rumbo, mode=IN, jdbcType=VARCHAR},
+		#{precision, mode=IN, jdbcType=VARCHAR}
+		)}
+	</select>
+	<select
+			id="consultaTransaccion"
+			statementType="CALLABLE"
+			parameterType="java.lang.Integer"
+			resultMap="ar.com.smg.smmp.hl7.persistence.mapper.ds1.Hl7Mapper.rmHL7Transaccion">
+		{call prestaci.dbo.prs_transac_remotas(
+		#{trx,mode=IN,jdbcType=NUMERIC}
+		)}
+	</select>
+	<select
+			id="consultaPrestacionesExceptuadas"
+			statementType="CALLABLE"
+			parameterType="ar.com.smg.smmp.model.hl7.HL7ConsultaPrestacionExceptuada"
+			resultMap="ar.com.smg.smmp.hl7.persistence.mapper.ds1.Hl7Mapper.rmHL7ConsultaPrestacionExceptuada">
+		{call prestaci.dbo.prs_tr_excep_token_guardia(
+		#{nomen, mode=IN, jdbcType=NUMERIC},
+		#{prestac, mode=IN, jdbcType=VARCHAR}
+		)}
+	</select>
+</mapper>
