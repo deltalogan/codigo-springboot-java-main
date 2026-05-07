@@ -1,12 +1,18 @@
 package ar.com.smg.smmp.model.hl7;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.Getter;
+import lombok.Setter;
 
+@Setter
+@Getter
 @Schema(name = "HL7InfoDiagnostico", description = "DTO de solicitud HL7 para consulta o registro de información de diagnóstico.")
 public class HL7InfoDiagnostico implements Serializable {
 
+	@Serial
 	private static final long serialVersionUID = -576280222852124841L;
 
 	@Schema(description = "Modo de operación de la solicitud HL7.", example = "A")
@@ -37,67 +43,4 @@ public class HL7InfoDiagnostico implements Serializable {
 		super();
 	}
 
-	public String getModo() {
-		return modo;
-	}
-
-	public void setModo(String modo) {
-		this.modo = modo;
-	}
-
-	public String getCreden() {
-		return creden;
-	}
-
-	public void setCreden(String creden) {
-		this.creden = creden;
-	}
-
-	public String getManual() {
-		return manual;
-	}
-
-	public void setManual(String manual) {
-		this.manual = manual;
-	}
-
-	public Integer getTicket() {
-		return ticket;
-	}
-
-	public void setTicket(Integer ticket) {
-		this.ticket = ticket;
-	}
-
-	public String getTermId() {
-		return termId;
-	}
-
-	public void setTermId(String termId) {
-		this.termId = termId;
-	}
-
-	public Integer getInterNro() {
-		return interNro;
-	}
-
-	public void setInterNro(Integer interNro) {
-		this.interNro = interNro;
-	}
-
-	public String getCuit() {
-		return cuit;
-	}
-
-	public void setCuit(String cuit) {
-		this.cuit = cuit;
-	}
-
-	public String getDiag() {
-		return diag;
-	}
-
-	public void setDiag(String diag) {
-		this.diag = diag;
-	}
 }

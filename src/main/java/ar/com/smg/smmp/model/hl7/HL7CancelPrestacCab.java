@@ -1,12 +1,18 @@
 package ar.com.smg.smmp.model.hl7;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.Getter;
+import lombok.Setter;
 
+@Setter
+@Getter
 @Schema(name = "HL7CancelPrestacCab", description = "Cabecera de respuesta HL7 para cancelación de prestación.")
 public class HL7CancelPrestacCab implements Serializable {
 
+	@Serial
 	private static final long serialVersionUID = -4507793412475511777L;
 
 	@Schema(description = "Identificador de transacción de alta.", example = "TX202604300001")
@@ -46,91 +52,4 @@ public class HL7CancelPrestacCab implements Serializable {
 		super();
 	}
 
-	public String getTransacAlta() {
-		return transacAlta;
-	}
-
-	public void setTransacAlta(String transacAlta) {
-		this.transacAlta = transacAlta;
-	}
-
-	public Integer getTransac() {
-		return transac;
-	}
-
-	public void setTransac(Integer transac) {
-		this.transac = transac;
-	}
-
-	public Integer getRechaCabecera() {
-		return rechaCabecera;
-	}
-
-	public void setRechaCabecera(Integer rechaCabecera) {
-		this.rechaCabecera = rechaCabecera;
-	}
-
-	public String getRechaCabeDeno() {
-		return rechaCabeDeno;
-	}
-
-	public void setRechaCabeDeno(String rechaCabeDeno) {
-		this.rechaCabeDeno = rechaCabeDeno;
-	}
-
-	public String getApeNom() {
-		return apeNom;
-	}
-
-	public void setApeNom(String apeNom) {
-		this.apeNom = apeNom;
-	}
-
-	public String getGravado() {
-		return gravado;
-	}
-
-	public void setGravado(String gravado) {
-		this.gravado = gravado;
-	}
-
-	public String getPlanCodi() {
-		return planCodi;
-	}
-
-	public void setPlanCodi(String planCodi) {
-		this.planCodi = planCodi;
-	}
-
-	public Integer getPmi() {
-		return pmi;
-	}
-
-	public void setPmi(Integer pmi) {
-		this.pmi = pmi;
-	}
-
-	public String getSexo() {
-		return sexo;
-	}
-
-	public void setSexo(String sexo) {
-		this.sexo = sexo;
-	}
-
-	public Integer getEdad() {
-		return edad;
-	}
-
-	public void setEdad(Integer edad) {
-		this.edad = edad;
-	}
-
-	public String getLeyimp() {
-		return leyimp;
-	}
-
-	public void setLeyimp(String leyimp) {
-		this.leyimp = leyimp;
-	}
 }

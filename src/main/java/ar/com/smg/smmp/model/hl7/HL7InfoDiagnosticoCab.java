@@ -1,12 +1,18 @@
 package ar.com.smg.smmp.model.hl7;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.Getter;
+import lombok.Setter;
 
+@Setter
+@Getter
 @Schema(name = "HL7InfoDiagnosticoCab", description = "Cabecera de respuesta HL7 para información de diagnóstico.")
 public class HL7InfoDiagnosticoCab implements Serializable {
 
+	@Serial
 	private static final long serialVersionUID = -5526154572254688656L;
 
 	@Schema(description = "Número o identificador de ticket asociado a la operación.", example = "456789")
@@ -25,35 +31,4 @@ public class HL7InfoDiagnosticoCab implements Serializable {
 		super();
 	}
 
-	public String getTicket() {
-		return ticket;
-	}
-
-	public void setTicket(String ticket) {
-		this.ticket = ticket;
-	}
-
-	public Integer getRecha() {
-		return recha;
-	}
-
-	public void setRecha(Integer recha) {
-		this.recha = recha;
-	}
-
-	public String getDeno() {
-		return deno;
-	}
-
-	public void setDeno(String deno) {
-		this.deno = deno;
-	}
-
-	public String getNomPrestad() {
-		return nomPrestad;
-	}
-
-	public void setNomPrestad(String nomPrestad) {
-		this.nomPrestad = nomPrestad;
-	}
 }

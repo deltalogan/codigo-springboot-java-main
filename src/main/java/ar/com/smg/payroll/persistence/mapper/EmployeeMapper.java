@@ -20,6 +20,7 @@ public interface EmployeeMapper {
     @Options(useGeneratedKeys = true, keyProperty = "id")
     Employee save(@Param("id") Employee employee);
 
+    @SuppressWarnings("UnusedReturnValue")
     @Select("DELETE FROM EMPLOYEES WHERE id = #{id}")
     Employee deleteById(@Param("id") Long id);
 

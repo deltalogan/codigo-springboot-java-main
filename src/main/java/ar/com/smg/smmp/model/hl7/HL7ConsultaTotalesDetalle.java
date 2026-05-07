@@ -1,12 +1,18 @@
 package ar.com.smg.smmp.model.hl7;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.Getter;
+import lombok.Setter;
 
+@Setter
+@Getter
 @Schema(name = "HL7ConsultaTotalesDetalle", description = "Detalle de respuesta HL7 para consulta de totales.")
 public class HL7ConsultaTotalesDetalle implements Serializable {
 
+	@Serial
 	private static final long serialVersionUID = -6381630996816775715L;
 
 	@Schema(description = "Código nomenclador asociado al ítem.", example = "420101")
@@ -28,43 +34,4 @@ public class HL7ConsultaTotalesDetalle implements Serializable {
 		super();
 	}
 
-	public Integer getNomen() {
-		return nomen;
-	}
-
-	public void setNomen(Integer nomen) {
-		this.nomen = nomen;
-	}
-
-	public String getPrestac() {
-		return prestac;
-	}
-
-	public void setPrestac(String prestac) {
-		this.prestac = prestac;
-	}
-
-	public Integer getCanti() {
-		return canti;
-	}
-
-	public void setCanti(Integer canti) {
-		this.canti = canti;
-	}
-
-	public String getNomenDeno() {
-		return nomenDeno;
-	}
-
-	public void setNomenDeno(String nomenDeno) {
-		this.nomenDeno = nomenDeno;
-	}
-
-	public String getPrestacDeno() {
-		return prestacDeno;
-	}
-
-	public void setPrestacDeno(String prestacDeno) {
-		this.prestacDeno = prestacDeno;
-	}
 }

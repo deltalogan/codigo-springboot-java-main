@@ -1,5 +1,6 @@
 package ar.com.smg.smmp.model.hl7;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -13,10 +14,11 @@ import io.swagger.v3.oas.annotations.media.Schema;
 @Schema(name = "HL7DateAdapter", description = "Adaptador de fechas utilizado para conversión entre representaciones de fecha HL7 y objetos Date.", hidden = true)
 public class HL7DateAdapter extends XmlAdapter<String, Date> implements Serializable {
 
+	@Serial
 	private static final long serialVersionUID = -6993005487835954847L;
 
-	private DateFormat defaultFormat;
-	private DateFormat[] allowedFormats;
+	final DateFormat defaultFormat;
+	final DateFormat[] allowedFormats;
 
 	public HL7DateAdapter() {
 		this.defaultFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");

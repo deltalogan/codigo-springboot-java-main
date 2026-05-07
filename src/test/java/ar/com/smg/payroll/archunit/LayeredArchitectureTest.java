@@ -23,6 +23,7 @@ public class LayeredArchitectureTest {
     private static final String PERSISTENCE = "Persistence";
     private static final String CONTROLLER = "Controller";
 
+    @SuppressWarnings("unused")
     @ArchTest
     public static final ArchRule layer_dependencies_are_respected = Architectures.layeredArchitecture()
             .consideringAllDependencies()

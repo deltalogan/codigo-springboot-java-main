@@ -13,8 +13,8 @@ import ar.com.smg.payroll.domain.Employee;
 import ar.com.smg.payroll.persistence.mapper.EmployeeMapper;
 
 /**
- * Test de integración para EmployeeMapper
- * 
+ * Test de integración para EmployeeMapper.
+ *
  * @ActiveProfiles("test") - Activa el perfil 'test' que carga:
  *                          - application-test.yml
  *                          - Bean DataSource con H2 embebido (PersistenceConfig.dataSource())
@@ -25,13 +25,13 @@ import ar.com.smg.payroll.persistence.mapper.EmployeeMapper;
 class EmployeeMapperIntegrationTest {
 
     @Autowired
-    EmployeeMapper employeeMapper;
+    private EmployeeMapper employeeMapper;
 
     @Test
     void whenRecordsInDatabase_shouldReturnEmployeeWithGivenId() {
-        Employee employee = employeeMapper.findById(1L).get();
+        Employee employee = employeeMapper.findById(1L)
+                .orElseThrow(() -> new AssertionError("Debe existir un empleado con ID 1"));
 
-        // assertNull(employee);
         assertEquals(1L, employee.getId());
         assertEquals("Bilbo Baggins", employee.getName());
         assertEquals("burglar", employee.getRole());

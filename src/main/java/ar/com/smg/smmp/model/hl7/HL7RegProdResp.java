@@ -1,13 +1,19 @@
 package ar.com.smg.smmp.model.hl7;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.List;
 
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.Getter;
+import lombok.Setter;
 
+@Setter
+@Getter
 @Schema(name = "HL7RegProdResp", description = "DTO de respuesta HL7 para registro de producto o prestación.")
 public class HL7RegProdResp implements Serializable {
 
+	@Serial
 	private static final long serialVersionUID = -98638691839448658L;
 
 	@Schema(description = "Cabecera de la respuesta de registro.")
@@ -20,19 +26,4 @@ public class HL7RegProdResp implements Serializable {
 		super();
 	}
 
-	public HL7RegProdCab getCabecera() {
-		return cabecera;
-	}
-
-	public void setCabecera(HL7RegProdCab cabecera) {
-		this.cabecera = cabecera;
-	}
-
-	public List<HL7RegProdDetalle> getDetalle() {
-		return detalle;
-	}
-
-	public void setDetalle(List<HL7RegProdDetalle> detalle) {
-		this.detalle = detalle;
-	}
 }

@@ -1,13 +1,19 @@
 package ar.com.smg.smmp.model.hl7;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.Date;
 
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.Getter;
+import lombok.Setter;
 
+@Setter
+@Getter
 @Schema(name = "HL7Geoposicion", description = "DTO con información de geoposición asociada a una transacción HL7.")
 public class HL7Geoposicion implements Serializable {
 
+	@Serial
 	private static final long serialVersionUID = 1L;
 
 	@Schema(description = "Identificador interno del registro de geoposición.", example = "1")
@@ -39,66 +45,5 @@ public class HL7Geoposicion implements Serializable {
 
 	@Schema(description = "Fecha y hora de captura de la geoposición.", type = "string", format = "date-time", example = "2026-04-30T10:15:30")
 	private Date timestamp;
-
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
-	public Integer getTransac() {
-		return transac;
-	}
-	public void setTransac(Integer transac) {
-		this.transac = transac;
-	}
-	public String getLatitud() {
-		return latitud;
-	}
-	public void setLatitud(String latitud) {
-		this.latitud = latitud;
-	}
-	public String getLongitud() {
-		return longitud;
-	}
-	public void setLongitud(String longitud) {
-		this.longitud = longitud;
-	}
-	public String getUrl() {
-		return url;
-	}
-	public void setUrl(String url) {
-		this.url = url;
-	}
-	public String getAltitud() {
-		return altitud;
-	}
-	public void setAltitud(String altitud) {
-		this.altitud = altitud;
-	}
-	public String getVelocidad() {
-		return velocidad;
-	}
-	public void setVelocidad(String velocidad) {
-		this.velocidad = velocidad;
-	}
-	public String getRumbo() {
-		return rumbo;
-	}
-	public void setRumbo(String rumbo) {
-		this.rumbo = rumbo;
-	}
-	public String getPrecision() {
-		return precision;
-	}
-	public void setPrecision(String precision) {
-		this.precision = precision;
-	}
-	public Date getTimestamp() {
-		return timestamp;
-	}
-	public void setTimestamp(Date timestamp) {
-		this.timestamp = timestamp;
-	}
 
 }

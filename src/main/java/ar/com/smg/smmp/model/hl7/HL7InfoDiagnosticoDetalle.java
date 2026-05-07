@@ -1,12 +1,18 @@
 package ar.com.smg.smmp.model.hl7;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.Getter;
+import lombok.Setter;
 
+@Setter
+@Getter
 @Schema(name = "HL7InfoDiagnosticoDetalle", description = "Detalle de respuesta HL7 para información de diagnóstico.")
 public class HL7InfoDiagnosticoDetalle implements Serializable {
 
+	@Serial
 	private static final long serialVersionUID = 6960851513300147992L;
 
 	@Schema(description = "Número de transacción asociado al ítem de la respuesta.", example = "456789")
@@ -25,35 +31,4 @@ public class HL7InfoDiagnosticoDetalle implements Serializable {
 		super();
 	}
 
-	public Integer getTransac() {
-		return transac;
-	}
-
-	public void setTransac(Integer transac) {
-		this.transac = transac;
-	}
-
-	public Integer getRechaItem() {
-		return rechaItem;
-	}
-
-	public void setRechaItem(Integer rechaItem) {
-		this.rechaItem = rechaItem;
-	}
-
-	public String getDenoItem() {
-		return denoItem;
-	}
-
-	public void setDenoItem(String denoItem) {
-		this.denoItem = denoItem;
-	}
-
-	public String getIcd() {
-		return icd;
-	}
-
-	public void setIcd(String icd) {
-		this.icd = icd;
-	}
 }

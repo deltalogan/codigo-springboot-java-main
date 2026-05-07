@@ -17,6 +17,7 @@ public interface Hl7Mapper {
     List<Object> registracionProd(HL7RegProd hl7RegProd);
     List<Object> impresionTransac(@Param("codigoTx") Integer codigoTx);
     HL7Geoposicion consultaGeoposicion(@Param("codigoTx") Integer codigoTx);
+    @SuppressWarnings("UnusedReturnValue")
     HL7Geoposicion informaGeoposicion(HL7Geoposicion hl7Geoposicion);
     HL7ConsultaTransaccionResp consultaTransaccion(@Param("trx") Integer trx);
     List<HL7ConsultaPrestacionExceptuada> consultaPrestacionesExceptuadas(HL7ConsultaPrestacionExceptuada consultaPrestacionExceptuada);

@@ -331,9 +331,9 @@ public class Hl7Controller {
     })
     @GetMapping("/consulta-prestaciones-exceptuadas")
     public ResponseEntity<List<HL7ConsultaPrestacionExceptuada>> getPrestacionesExceptuadas(
-            @Parameter(description = "Código de nomenclador utilizado para filtrar la consulta", example = "420101", required = false)
+            @Parameter(description = "Código de nomenclador utilizado para filtrar la consulta", example = "420101")
             @RequestParam(required = false) Integer nomenclador,
-            @Parameter(description = "Código o descripción breve de la prestación utilizada para filtrar la consulta", example = "CONSULTA", required = false)
+            @Parameter(description = "Código o descripción breve de la prestación utilizada para filtrar la consulta", example = "CONSULTA")
             @RequestParam(required = false) String prestacion) {
 
         try {

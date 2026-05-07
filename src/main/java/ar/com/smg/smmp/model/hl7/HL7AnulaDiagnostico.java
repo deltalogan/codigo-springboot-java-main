@@ -1,12 +1,18 @@
 package ar.com.smg.smmp.model.hl7;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.Getter;
+import lombok.Setter;
 
+@Setter
+@Getter
 @Schema(name = "HL7AnulaDiagnostico", description = "DTO de solicitud HL7 para anulación de diagnóstico.")
 public class HL7AnulaDiagnostico implements Serializable {
 
+	@Serial
 	private static final long serialVersionUID = 5830944862603589202L;
 
 	@Schema(description = "Modo de operación de la solicitud HL7.", example = "A")
@@ -34,59 +40,4 @@ public class HL7AnulaDiagnostico implements Serializable {
 		super();
 	}
 
-	public String getModo() {
-		return modo;
-	}
-
-	public void setModo(String modo) {
-		this.modo = modo;
-	}
-
-	public String getCreden() {
-		return creden;
-	}
-
-	public void setCreden(String creden) {
-		this.creden = creden;
-	}
-
-	public String getManual() {
-		return manual;
-	}
-
-	public void setManual(String manual) {
-		this.manual = manual;
-	}
-
-	public String getTermId() {
-		return termId;
-	}
-
-	public void setTermId(String termId) {
-		this.termId = termId;
-	}
-
-	public Integer getInterNro() {
-		return interNro;
-	}
-
-	public void setInterNro(Integer interNro) {
-		this.interNro = interNro;
-	}
-
-	public String getCuit() {
-		return cuit;
-	}
-
-	public void setCuit(String cuit) {
-		this.cuit = cuit;
-	}
-
-	public Integer getTicketAnula() {
-		return ticketAnula;
-	}
-
-	public void setTicketAnula(Integer ticketAnula) {
-		this.ticketAnula = ticketAnula;
-	}
 }

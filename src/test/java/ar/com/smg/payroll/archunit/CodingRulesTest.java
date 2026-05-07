@@ -15,23 +15,29 @@ import com.tngtech.archunit.lang.ArchRule;
 @AnalyzeClasses(packages = "ar.com.smg.payroll", importOptions = ImportOption.DoNotIncludeTests.class)
 public class CodingRulesTest {
 
+        @SuppressWarnings("unused")
         @ArchTest
         public static final ArchRule exceptions_should_respect_naming_convention = classes()
                         .that().resideInAPackage("..exception..")
                         .should().haveSimpleNameEndingWith("Exception");
 
+        @SuppressWarnings("unused")
         @ArchTest
         static ArchRule no_generic_exceptions = NO_CLASSES_SHOULD_THROW_GENERIC_EXCEPTIONS;
 
+        @SuppressWarnings("unused")
         @ArchTest
         static ArchRule no_standard_streams = NO_CLASSES_SHOULD_ACCESS_STANDARD_STREAMS;
 
+        @SuppressWarnings("unused")
         @ArchTest
         static ArchRule no_java_logging = NO_CLASSES_SHOULD_USE_JAVA_UTIL_LOGGING;
 
+        @SuppressWarnings("unused")
         @ArchTest
         static ArchRule no_jodatime = NO_CLASSES_SHOULD_USE_JODATIME;
 
+        @SuppressWarnings("unused")
         @ArchTest
         static ArchRule classes_must_not_be_suffixed_with_impl = noClasses()
                         .should().haveSimpleNameEndingWith("Impl")
@@ -40,6 +46,7 @@ public class CodingRulesTest {
          * Regla: Los controladores (RestController) DEBEN tener el sufijo "Controller"
          * Esto asegura una convención clara para identificar endpoints
          */
+        @SuppressWarnings("unused")
         @ArchTest
         public static final ArchRule controllers_should_be_named_with_controller_suffix = classes()
                         .that()
