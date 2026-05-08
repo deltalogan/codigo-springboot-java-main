@@ -1,102 +1,94 @@
 package ar.com.smg.smmp.model.hl7;
-
 import java.io.Serial;
 import java.io.Serializable;
 import java.util.Date;
-
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
 import lombok.Setter;
-
-@Schema(name = "HL7CancelPrestac", description = "DTO de solicitud HL7 para cancelación de prestación.")
+@Schema(name = "HL7CancelPrestac",
+		description = "DTO de solicitud HL7 para cancelación de prestación.")
 public class HL7CancelPrestac implements Serializable {
-
-	@Serial
-	private static final long serialVersionUID = -7549246129265897344L;
-
+	@Serial private static final long serialVersionUID = -7549246129265897344L;
 	@Setter
-    @Getter
-    @Schema(description = "Modo de operación de la solicitud HL7.", example = "A")
+	@Getter
+	@Schema(description = "Modo de operación de la solicitud HL7.", example = "A")
 	private String modo;
-
 	@Setter
-    @Getter
-    @Schema(description = "Credencial o identificador del beneficiario.", example = "1234567890")
+	@Getter
+	@Schema(description = "Credencial o identificador del beneficiario.",
+			example = "1234567890")
 	private String creden;
-
 	@Setter
-    @Getter
-    @Schema(description = "Tipo de operación o mensaje.", example = "1")
+	@Getter
+	@Schema(description = "Tipo de operación o mensaje.", example = "1")
 	private Integer tipo;
-
-	@Schema(description = "Fecha y hora de alta de la transacción en formato HL7 adaptado. Admite valores compatibles con yyyy-MM-dd HH:mm:ss, yyyyMMdd o yyyy-MM-dd.", type = "string", example = "2026-04-30 10:15:30")
+	@Schema(description = "Fecha y hora de alta de la transacción en formato HL7 "
+			+ "adaptado.Admite valores compatibles con yyyy-MM-dd "
+			+ "HH:mm:ss,yyyyMMdd o yyyy-MM-dd.",
+			type = "string", example = "2026-04-30 10:15:30")
 	@XmlJavaTypeAdapter(HL7DateAdapter.class)
 	private Date alta;
-
 	@Setter
-    @Getter
-    @Schema(description = "Indicador de procesamiento manual.", example = "N")
+	@Getter
+	@Schema(description = "Indicador de procesamiento manual.", example = "N")
 	private String manual;
-
 	@Setter
-    @Getter
-    @Schema(description = "Identificador de ticket externo asociado a la operación.", example = "12345")
+	@Getter
+	@Schema(
+			description = "Identificador de ticket externo asociado a la operación.",
+			example = "12345")
 	private Integer ticketExt;
-
 	@Setter
-    @Getter
-    @Schema(description = "Código de cancelación a nivel cabecera.", example = "0")
+	@Getter
+	@Schema(
+			description = "Código de cancelación a nivel cabecera.", example = "0")
 	private Integer cancelCab;
-
 	@Setter
-    @Getter
-    @Schema(description = "Identificador de terminal origen.", example = "TERM001")
+	@Getter
+	@Schema(
+			description = "Identificador de terminal origen.", example = "TERM001")
 	private String termId;
-
 	@Setter
-    @Getter
-    @Schema(description = "Número interno de la entidad integradora.", example = "1001")
+	@Getter
+	@Schema(description = "Número interno de la entidad integradora.",
+			example = "1001")
 	private Integer interNro;
-
 	@Setter
-    @Getter
-    @Schema(description = "CUIT del prestador o emisor de la solicitud.", example = "30712345678")
+	@Getter
+	@Schema(description = "CUIT del prestador o emisor de la solicitud.",
+			example = "30712345678")
 	private String cuit;
-
 	@Setter
-    @Getter
-    @Schema(description = "Modo de cancelación informado en la solicitud.", example = "TOTAL")
+	@Getter
+	@Schema(description = "Modo de cancelación informado en la solicitud.",
+			example = "TOTAL")
 	private String cancelModo;
-
 	@Setter
-    @Getter
-    @Schema(description = "Código de error externo informado por el sistema origen.", example = "0")
+	@Getter
+	@Schema(
+			description = "Código de error externo informado por el sistema origen.",
+			example = "0")
 	private Integer errorExt;
-
 	@Setter
-    @Getter
-    @Schema(description = "Parámetro adicional 1 utilizado por la integración.", example = "VALOR1")
+	@Getter
+	@Schema(description = "Parámetro adicional 1 utilizado por la integración.",
+			example = "VALOR1")
 	private String param1;
-
 	@Setter
-    @Getter
-    @Schema(description = "Parámetro adicional 2 utilizado por la integración.", example = "VALOR2")
+	@Getter
+	@Schema(description = "Parámetro adicional 2 utilizado por la integración.",
+			example = "VALOR2")
 	private String param2;
-
 	public HL7CancelPrestac() {
 		super();
 	}
-
 	@SuppressWarnings("unused")
-    public Date getAlta() {
+	public Date getAlta() {
 		return (alta != null ? (Date) alta.clone() : null);
 	}
-
 	@SuppressWarnings("unused")
 	public void setAlta(Date alta) {
 		this.alta = (alta != null ? (Date) alta.clone() : null);
 	}
-
 }
